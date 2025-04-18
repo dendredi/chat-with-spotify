@@ -135,7 +135,7 @@ def search_song_by_lyrics(lyrics: str) -> Song | None:
     """Finds a song with title and artist names for a part of its lyrics. Use this only when the user actually asks for a song by its lyrics, and you dont know the song yet."""
     try:
         return search_song_by_lyrics_impl(lyrics)
-    except ValueError as e:
+    except Exception as e:
         return {"error": str(e)}
 
 
@@ -163,7 +163,7 @@ def spotipy_request(function_name: str, parameters: dict | None = None) -> dict:
             if parameters is None
             else spotipy_request_impl(function_name, **parameters)
         )
-    except ValueError as e:
+    except Exception as e:
         return {"error": str(e)}
 
 
