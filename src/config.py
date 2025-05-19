@@ -5,11 +5,12 @@ from pathlib import Path
 
 # Point to the .env file in the parent directory
 env_path = Path(__file__).parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
+load_dotenv(dotenv_path=env_path, override=True)
 
 GPT_URL = os.getenv("GPT_URL")
 GPT_API_VERSION = os.getenv("GPT_API_VERSION")
 GPT_ACCESS_TOKEN = os.getenv("GPT_ACCESS_TOKEN")
+GPT_IS_AZURE = os.getenv("GPT_IS_AZURE").lower() == "true"
 
 SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
